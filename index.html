@@ -418,6 +418,36 @@
     }
     .strength-highlight .blur-name { filter: blur(1.3px); }
     .strength-highlight .blur-num { filter: blur(1.3px); }
+    /* 구간 추가수수료 수익 섹션 */
+    #revenue { background:#f6f9fe; }
+    .rev-eyebrow { font-size:.8rem; font-weight:700; letter-spacing:.14em; color:#008FF0; margin-bottom:1rem; }
+    .rev-title { font-size:clamp(1.7rem,4vw,3.2rem); font-weight:900; line-height:1.3; letter-spacing:-.03em; color:#152440; word-break:keep-all; }
+    .rev-title .blue { color:#008FF0; display:block; }
+    .rev-context { margin-top:1.2rem; font-size:clamp(.92rem,1.4vw,1.1rem); color:#60718A; line-height:1.6; word-break:keep-all; }
+    .rev-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:3.5rem; margin-top:3.5rem; align-items:end; }
+    .rev-basis { font-size:1.1rem; font-weight:800; color:#223551; }
+    .rev-one { margin-top:1.4rem; font-size:1.3rem; color:#536782; }
+    .rev-hero { font-size:clamp(3.6rem,8vw,6rem); font-weight:900; color:#008FF0; line-height:1.05; letter-spacing:-.04em; margin-top:.3rem; }
+    .rev-hero-cap { margin-top:1.2rem; font-size:1.1rem; color:#536782; line-height:1.6; }
+    .rev-chart-card { background:#fff; border:1px solid rgba(0,143,240,.12); border-radius:20px; padding:1.8rem 1.8rem 1.4rem; box-shadow:0 14px 36px rgba(21,36,64,.07); }
+    .rev-chart-title { font-size:1.15rem; font-weight:800; color:#223551; margin-bottom:1.4rem; }
+    .rev-bars { display:flex; align-items:flex-end; justify-content:space-around; gap:1rem; height:230px; border-bottom:2px solid #e3eaf4; }
+    .rev-bar { flex:1; max-width:92px; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+    .rev-bar .val { font-size:.95rem; font-weight:800; color:#152440; margin-bottom:.45rem; white-space:nowrap; }
+    .rev-bar .fill { width:100%; border-radius:8px 8px 0 0; height:0; transition:height 1.1s cubic-bezier(.16,1,.3,1); }
+    .rev-labels { display:flex; justify-content:space-around; gap:1rem; margin-top:.6rem; }
+    .rev-labels span { flex:1; max-width:92px; text-align:center; font-size:1.05rem; font-weight:800; color:#223551; }
+    .rev-note { margin-top:1rem; font-size:.8rem; color:#73839A; word-break:keep-all; }
+    @media (max-width: 900px) {
+      .rev-grid { grid-template-columns:1fr; gap:2.2rem; margin-top:2.4rem; }
+      .rev-bars { height:190px; gap:.6rem; }
+      .rev-bar .val { font-size:.8rem; }
+      .rev-labels { gap:.6rem; }
+      .rev-labels span { font-size:.92rem; }
+      .rev-chart-card { padding:1.4rem 1.1rem 1.1rem; }
+      .rev-one { font-size:1.1rem; }
+      .rev-hero-cap, .rev-basis { font-size:1rem; }
+    }
     /* 쇼츠 영상 카드 */
     #shorts-video { background:#ffffff; }
     .shorts-card {
@@ -1045,6 +1075,29 @@
   </div>
 </section>
 
+<!-- 구간 추가수수료 수익 섹션 -->
+<section id="revenue">
+  <div class="section-inner">
+    <div class="rev-eyebrow">COMMISSION RATE</div>
+    <h2 class="rev-title">구간 추가수수료 하나로<span class="blue">대표님의 월 수익이 달라집니다</span></h2>
+    <p class="rev-context">같은 처방 실적에서도, 구간 수수료에 따라 실제 수익 차이가 커질 수 있습니다.</p>
+    <div class="rev-grid">
+      <div>
+        <div class="rev-basis">월 처방 실적 1억원 기준</div>
+        <div class="rev-one">추가수수료 1% = 월</div>
+        <div class="rev-hero">100만원</div>
+        <p class="rev-hero-cap">수수료율이 올라갈수록<br>추가 수익도 함께 상승합니다.</p>
+      </div>
+      <div class="rev-chart-card">
+        <div class="rev-chart-title">추가수수료율별 월 추가 수익</div>
+        <div class="rev-bars"><div class="rev-bar"><span class="val">100만원</span><div class="fill" data-h="20" style="background:#BBDEFB"></div></div><div class="rev-bar"><span class="val">200만원</span><div class="fill" data-h="40" style="background:#86C5FA"></div></div><div class="rev-bar"><span class="val">300만원</span><div class="fill" data-h="60" style="background:#409CF2"></div></div><div class="rev-bar"><span class="val">500만원</span><div class="fill" data-h="100" style="background:#008FF0"></div></div></div>
+        <div class="rev-labels"><span>1%</span><span>2%</span><span>3%</span><span>5%</span></div>
+        <p class="rev-note">월 처방 실적 1억원에 각 추가수수료율을 적용한 예시입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 쇼츠 영상 섹션 -->
 <section id="shorts-video">
   <div class="section-inner" style="padding-top:7rem; padding-bottom:3.5rem; text-align:center;">
@@ -1459,6 +1512,16 @@ window.addEventListener('scroll', () => {
       btn.classList.toggle('sound-on', muted);
     });
   })();
+</script>
+<script>
+(function(){
+  var fills = document.querySelectorAll('#revenue .fill');
+  if(!fills.length) return;
+  function grow(){ fills.forEach(function(f){ f.style.height = f.getAttribute('data-h') + '%'; }); }
+  if(!('IntersectionObserver' in window)){ grow(); return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ grow(); io.disconnect(); } }); }, {threshold:.3});
+  io.observe(document.querySelector('#revenue .rev-bars'));
+})();
 </script>
 </body>
 </html>
