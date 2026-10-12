@@ -824,6 +824,11 @@
 @media(prefers-reduced-motion:reduce){#cmx *, #cmx *:before, #cmx *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 #cmx .fade-up{opacity:1;transform:none}}
 
+    #cmx .cmx-promise { font-size:15px; line-height:1.65; word-break:keep-all; }
+    #cmx .cmx-promise span { white-space:nowrap; }
+    #cmx .cmx-promise p { margin:0; position:relative; padding-left:1.25em; }
+    #cmx .cmx-promise p::before { content:"✓"; position:absolute; left:0; top:0; }
+    @media (max-width: 820px) { #cmx .cmx-promise { font-size:14px; } }
     /* 쇼츠 영상 카드 */
     #shorts-video { background:#ffffff; }
     .shorts-card {
@@ -1500,7 +1505,7 @@
             +<span class="counting" data-count="1">0</span>% ~
             +<span class="counting" data-count="6">0</span>%
           </div>
-          <div class="check">✓ 기본수수료 차감 없이 추가 지급</div>
+          <div class="check cmx-promise"><p><span>구간 수수료는 우리메디텍과 대표님들이</span> <span>함께 이뤄낸 성과입니다</span></p><p><span>10여년동안 약속을 지켜왔습니다</span></p></div>
         </div>
       </div>
 
