@@ -319,7 +319,7 @@
     }
     .stat-item {
       flex: 1;
-      padding: 1.5rem 2rem;
+      padding: 1.3rem 1rem;
       text-align: center;
       border-right: 1px solid rgba(0,0,0,0.06);
       display: flex; flex-direction: column; gap: .3rem;
@@ -332,6 +332,7 @@
     .stat-label {
       font-size: .75rem; color: var(--text2);
       letter-spacing: .05em; font-weight: 500;
+      line-height: 1.45; word-break: keep-all;
     }
 
     /* 섹션 공통 */
@@ -1282,9 +1283,11 @@
 
       /* 통계 바 */
       .stats-bar { flex-wrap: wrap; }
-      .stat-item { min-width: 50%; padding: .9rem .6rem; }
-      .stat-number { font-size: 1.4rem; }
-      .stat-label { font-size: .68rem; word-break: keep-all; }
+      .stat-item { width: 33.333%; min-width: 0; flex: 0 0 33.333%; padding: .75rem .35rem; }
+      .stat-item:nth-child(3n) { border-right: none; }
+      .stat-item:nth-child(-n+3) { border-bottom: 1px solid rgba(0,0,0,0.06); }
+      .stat-number { font-size: 1.3rem; }
+      .stat-label { font-size: .62rem; letter-spacing: 0; line-height: 1.4; word-break: keep-all; }
 
       /* 섹션들 */
       .strengths-grid, .services-grid { grid-template-columns: 1fr; }
@@ -1368,7 +1371,7 @@
       .nav-logo-text { font-size: .88rem; }
       .nav-logo-img { width: 26px; height: 26px; }
       .nav-cta { font-size: .62rem; padding: .42rem .65rem; }
-      #hero { padding-top: 30vh; padding-bottom: 12rem; }
+      #hero { padding-top: 26vh; padding-bottom: 15rem; }
       .hero-content { padding-right: 4.2rem; }
       .hero-title { font-size: 1.65rem; }
       .hero-tagline { font-size: .92rem; }
@@ -1455,7 +1458,7 @@
     </div>
     <div class="stat-item">
       <div class="stat-number" data-target="250">0</div>
-      <div class="stat-label">CSO 파트너 대표님</div>
+      <div class="stat-label">우리메디텍 재위탁<br>신고한 대표님</div>
     </div>
     <div class="stat-item">
       <div class="stat-number" data-target="100">0</div>
@@ -1464,6 +1467,14 @@
     <div class="stat-item">
       <div class="stat-number" data-target="1000">0</div>
       <div class="stat-label">성공 프로젝트</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="40">0</div>
+      <div class="stat-label">실무 담당자</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number" data-target="300">0</div>
+      <div class="stat-label">사무실 300평<br>창고 300평</div>
     </div>
   </div>
 </section>
