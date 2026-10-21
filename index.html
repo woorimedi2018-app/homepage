@@ -334,6 +334,11 @@
       letter-spacing: .05em; font-weight: 500;
       line-height: 1.45; word-break: keep-all;
     }
+    .stat-number.stat-text { font-size: 1.6rem; letter-spacing: -.02em; white-space: nowrap; }
+    .stat-up { font-size: .85em; }
+    @media (min-width: 901px) {
+      .stats-bar { padding-right: 118px; }
+    }
 
     /* 섹션 공통 */
     section {
@@ -1343,6 +1348,7 @@
       .stat-item:nth-child(3n) { border-right: none; }
       .stat-item:nth-child(-n+3) { border-bottom: 1px solid rgba(0,0,0,0.06); }
       .stat-number { font-size: 1.3rem; }
+      .stat-number.stat-text { font-size: 1.05rem; }
       .stat-label { font-size: .62rem; letter-spacing: 0; line-height: 1.4; word-break: keep-all; }
 
       /* 섹션들 */
@@ -1517,20 +1523,20 @@
       <div class="stat-label">우리메디텍 재위탁<br>신고한 대표님</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number" data-target="100">0</div>
-      <div class="stat-label">파트너 만족도 (%)</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number" data-target="1000">0</div>
-      <div class="stat-label">성공 프로젝트</div>
-    </div>
-    <div class="stat-item">
       <div class="stat-number" data-target="40">0</div>
       <div class="stat-label">실무 담당자</div>
     </div>
     <div class="stat-item">
       <div class="stat-number" data-target="300">0</div>
       <div class="stat-label">사무실 300평<br>창고 300평</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number stat-text">최고 <span class="stat-up">&#8593;</span></div>
+      <div class="stat-label">직거래율</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number stat-text">최고 <span class="stat-up">&#8593;</span></div>
+      <div class="stat-label">개인성장율</div>
     </div>
   </div>
 </section>
